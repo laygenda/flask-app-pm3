@@ -21,7 +21,7 @@ COPY . .
 
 # Jalankan inisialisasi database sebelum server mulai
 # Ini akan membuat file board.sqlite
-RUN python -m flask --app board init-db
+RUN bash -c "python -m dotenv load && python -m flask --app board init-db"
 
 # Perintah utama untuk menjalankan server Flask
 CMD ['python', '-m', 'flask', '--app', 'board', 'run', '--host=0.0.0.0', '--debug']
